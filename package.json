@@ -1,0 +1,14 @@
+{
+  "name": "react-app-weather",
+  "version": "1.0.0",
+  "description": "Get current weather condition",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thanusha Panaluwa",
+  "license": "ISC",
+  "dependencies": {
+    "create-react-app": "^5.0.1"
+  }
+}
