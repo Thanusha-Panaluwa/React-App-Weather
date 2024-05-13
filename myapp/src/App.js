@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="App">
     
-       <Weather />
+       <Weather defaultcity="Perth"/>
       <footer>
         This project is coded by <a href="">Thanusha Panaluwa</a> and is <a href="">open-sourced</a> on Github.
         </footer>

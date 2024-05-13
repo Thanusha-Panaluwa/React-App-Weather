@@ -1,6 +1,7 @@
 .container{
   background-color: aliceblue;
   margin-top: 50px;
+  border-radius: 10px;
 } 
 
 @keyframes move-twink-back {
