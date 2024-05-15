@@ -4,11 +4,13 @@
    
 }
 
+/*
 .weather-icon img{
 
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px; 
 }
+*/
 
 .weather-icon .posi {
     position: relative;
@@ -22,9 +24,9 @@
   
 
 .temp{
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 150;
-    margin-left: 10px;
+   
 }
 
 .weather{
