@@ -3,14 +3,17 @@ import './Weather.css';
 import Search from './Search';
 import axios from 'axios';
 import Properdate from './Properdate';
+import WeatherIcon from "./WeatherIcon";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function Weather() {
     const[weatherData, setweatherData] = useState({ready:false});
     const[updatedCity, setupdatedCity] = useState("perth");
      
     function getData(City){
-        //console.log(City);
-        setupdatedCity(City);
+      
+          setupdatedCity(City);
+        getCityWeather(City);
           
      } 
     
@@ -25,7 +28,7 @@ export default function Weather() {
             city:response.data.name,
             description:response.data.weather[0].description,
             humidity:response.data.main.humidity,
-            iconUrl:" https://openweathermap.org/img/wn/"+ response.data.weather[0].icon +"@2x.png",
+            icon:response.data.weather[0].icon 
             
         });
         
@@ -45,10 +48,9 @@ export default function Weather() {
             <div className="row">
                 <div className="col-6">
                     <div className="weather-icon">
-                    <img src={weatherData.iconUrl} alt={weatherData.description}></img>
-                    <span className="temp">  {Math.round(weatherData.temprature)} </span> <span className="posi">
-                        <a href="">&#8451; </a> | <a href="">&#8457;</a>
-                        </span>
+                    <WeatherIcon sendIcon={weatherData.icon} />
+                   {/* <img src={weatherData.iconUrl} alt={weatherData.description}></img>*/}
+                   <WeatherTemperature temp={weatherData.temprature} />
                         </div>
                         </div>
                        
@@ -69,13 +71,22 @@ export default function Weather() {
         
 
     } else {
+        getCityWeather(updatedCity);
        
-        const apiKey = "ebc5c2c8091706edf840091e9643782f";
-      let apiUrl="https://api.openweathermap.org/data/2.5/weather?q=" + updatedCity + "&appid=" + apiKey;
+     
 
-    axios.get(apiUrl).then(handleResponse);
-     alert(updatedCity);
     return "Loading ...";
+
+    }
+    function getCityWeather(City){
+
+        const apiKey = "ebc5c2c8091706edf840091e9643782f";
+        let apiUrl="https://api.openweathermap.org/data/2.5/weather?q=" + City + "&appid=" + apiKey;
+  
+      axios.get(apiUrl).then(handleResponse)
+      .catch((error)=>{
+        console.error(error);
+    });
 
     }
     
