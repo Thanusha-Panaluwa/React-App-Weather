@@ -1,6 +1,6 @@
 .weather{
    padding: auto;
-    margin-top: 15px; 
+    margin-top: 10px; 
    
 }
 
@@ -12,27 +12,38 @@
 }
 */
 
+.weather-icon{
+    margin-left: 20px;
+}
+
 .weather-icon .posi {
     position: relative;
     top: -30px;
     font-size: 80%;
+    
   }
   
   .weather-icon .posi a {
     text-decoration: none;
+    color : white;
   }
   
 
 .temp{
-    font-size: 40px;
-    font-weight: 150;
+    font-size: 60px;
+    font-weight: bolder;
    
 }
 
 .weather{
     margin-top: 20px;
+    color: white;
 }
 
 .weather-details-list{
     list-style-type:none;
+}
+
+.weather-details-list{
+    color: white;
 }

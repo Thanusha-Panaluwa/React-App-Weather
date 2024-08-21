@@ -4,6 +4,7 @@ import Search from './Search';
 import axios from 'axios';
 import Properdate from './Properdate';
 import WeatherIcon from "./WeatherIcon";
+import WeatherForecast from "./WeatherForecast";
 import WeatherTemperature from "./WeatherTemperature";
 
 export default function Weather() {
@@ -16,7 +17,6 @@ export default function Weather() {
         getCityWeather(City);
           
      } 
-    
 
     function handleResponse(response){
         
@@ -26,6 +26,7 @@ export default function Weather() {
             temprature:response.data.main.temp,
             wind: response.data.wind.speed,
             city:response.data.name,
+            coordinates:response.data.coord,
             description:response.data.weather[0].description,
             humidity:response.data.main.humidity,
             icon:response.data.weather[0].icon 
@@ -33,6 +34,7 @@ export default function Weather() {
         });
         
       }
+
     if (weatherData.ready){
         return (
             <div className="weather">
@@ -58,12 +60,14 @@ export default function Weather() {
         <div className="weather-details">
         <ul className="weather-details-list">
       
-       <li>Humidity: <span className="humiidty">{weatherData.humidity}</span>% </li>
-       <li>Wind: <span className="wind">{weatherData.wind}</span>km/h </li>
+       <li>Humidity: <span className="humiidty">  {weatherData.humidity}</span>% </li>
+       <li>Wind: <span className="wind">  {weatherData.wind}</span>km/h </li>
        </ul>
        </div>
      </div>
     </div>
+    <WeatherForecast cord={weatherData.coordinates}/>
+   
             </div>
          
           );
@@ -81,7 +85,7 @@ export default function Weather() {
     function getCityWeather(City){
 
         const apiKey = "ebc5c2c8091706edf840091e9643782f";
-        let apiUrl="https://api.openweathermap.org/data/2.5/weather?q=" + City + "&appid=" + apiKey;
+        let apiUrl="https://api.openweathermap.org/data/2.5/weather?q=" + City + "&appid=" + apiKey + "&units=metric";
   
       axios.get(apiUrl).then(handleResponse)
       .catch((error)=>{
