@@ -10,7 +10,7 @@ function App() {
        <Weather />
       <footer>
        
-        This project is coded by <a href="">Thanusha Panaluwa</a> and is <a href="">open-sourced</a> on Github.
+        This project is coded by <a href="https://www.linkedin.com/in/thanusha-panaluwa/">Thanusha Panaluwa</a> and is <a href="https://github.com/Thanusha-Panaluwa">open-sourced</a> on Github.
         </footer>
     </div>
   );
